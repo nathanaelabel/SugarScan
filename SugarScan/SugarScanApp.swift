@@ -11,7 +11,7 @@ import SwiftUI
 struct SugarScanApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ScanView()
         }
     }
 }

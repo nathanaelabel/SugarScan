@@ -7,18 +7,35 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		45064C082BE486EE00C86A4D /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45064C072BE486EE00C86A4D /* Color.swift */; };
+		4513171C2BE343830002F143 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4513171B2BE343830002F143 /* OnboardingView.swift */; };
+		4513171E2BE343AF0002F143 /* SetSugarLimitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4513171D2BE343AF0002F143 /* SetSugarLimitView.swift */; };
+		451317202BE343C30002F143 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4513171F2BE343C30002F143 /* MainView.swift */; };
+		451317222BE349F50002F143 /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 451317212BE349F50002F143 /* ProgressBar.swift */; };
+		457633FC2BE09207004E566F /* AddSugarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457633FB2BE09207004E566F /* AddSugarView.swift */; };
 		458EE2542BDF5197003D4EB5 /* SugarScanApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 458EE2532BDF5197003D4EB5 /* SugarScanApp.swift */; };
-		458EE2562BDF5197003D4EB5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 458EE2552BDF5197003D4EB5 /* ContentView.swift */; };
+		458EE2562BDF5197003D4EB5 /* ScanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 458EE2552BDF5197003D4EB5 /* ScanView.swift */; };
 		458EE2582BDF5198003D4EB5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 458EE2572BDF5198003D4EB5 /* Assets.xcassets */; };
 		458EE25B2BDF5198003D4EB5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 458EE25A2BDF5198003D4EB5 /* Preview Assets.xcassets */; };
+		458EE2672BDF5FF2003D4EB5 /* ScanViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 458EE2662BDF5FF2003D4EB5 /* ScanViewModel.swift */; };
+		458EE2692BDF8ADE003D4EB5 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 458EE2682BDF8ADD003D4EB5 /* ImagePicker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		45064C072BE486EE00C86A4D /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		4513171B2BE343830002F143 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		4513171D2BE343AF0002F143 /* SetSugarLimitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetSugarLimitView.swift; sourceTree = "<group>"; };
+		4513171F2BE343C30002F143 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		451317212BE349F50002F143 /* ProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
+		457633FB2BE09207004E566F /* AddSugarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSugarView.swift; sourceTree = "<group>"; };
 		458EE2502BDF5197003D4EB5 /* SugarScan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SugarScan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		458EE2532BDF5197003D4EB5 /* SugarScanApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SugarScanApp.swift; sourceTree = "<group>"; };
-		458EE2552BDF5197003D4EB5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		458EE2552BDF5197003D4EB5 /* ScanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanView.swift; sourceTree = "<group>"; };
 		458EE2572BDF5198003D4EB5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		458EE25A2BDF5198003D4EB5 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		458EE2662BDF5FF2003D4EB5 /* ScanViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanViewModel.swift; sourceTree = "<group>"; };
+		458EE2682BDF8ADD003D4EB5 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		458EE26A2BDF9A9F003D4EB5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,8 +68,10 @@
 		458EE2522BDF5197003D4EB5 /* SugarScan */ = {
 			isa = PBXGroup;
 			children = (
+				458EE26A2BDF9A9F003D4EB5 /* Info.plist */,
+				458EE2652BDF5F47003D4EB5 /* ViewModels */,
+				458EE2612BDF5E9E003D4EB5 /* Views */,
 				458EE2532BDF5197003D4EB5 /* SugarScanApp.swift */,
-				458EE2552BDF5197003D4EB5 /* ContentView.swift */,
 				458EE2572BDF5198003D4EB5 /* Assets.xcassets */,
 				458EE2592BDF5198003D4EB5 /* Preview Content */,
 			);
@@ -65,6 +84,37 @@
 				458EE25A2BDF5198003D4EB5 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		458EE2612BDF5E9E003D4EB5 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				458EE2622BDF5F07003D4EB5 /* Components */,
+				458EE2552BDF5197003D4EB5 /* ScanView.swift */,
+				457633FB2BE09207004E566F /* AddSugarView.swift */,
+				4513171B2BE343830002F143 /* OnboardingView.swift */,
+				4513171D2BE343AF0002F143 /* SetSugarLimitView.swift */,
+				4513171F2BE343C30002F143 /* MainView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		458EE2622BDF5F07003D4EB5 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				458EE2682BDF8ADD003D4EB5 /* ImagePicker.swift */,
+				451317212BE349F50002F143 /* ProgressBar.swift */,
+				45064C072BE486EE00C86A4D /* Color.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		458EE2652BDF5F47003D4EB5 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				458EE2662BDF5FF2003D4EB5 /* ScanViewModel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,8 +187,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				458EE2562BDF5197003D4EB5 /* ContentView.swift in Sources */,
+				4513171E2BE343AF0002F143 /* SetSugarLimitView.swift in Sources */,
+				451317202BE343C30002F143 /* MainView.swift in Sources */,
+				458EE2562BDF5197003D4EB5 /* ScanView.swift in Sources */,
+				45064C082BE486EE00C86A4D /* Color.swift in Sources */,
+				457633FC2BE09207004E566F /* AddSugarView.swift in Sources */,
+				451317222BE349F50002F143 /* ProgressBar.swift in Sources */,
 				458EE2542BDF5197003D4EB5 /* SugarScanApp.swift in Sources */,
+				4513171C2BE343830002F143 /* OnboardingView.swift in Sources */,
+				458EE2692BDF8ADE003D4EB5 /* ImagePicker.swift in Sources */,
+				458EE2672BDF5FF2003D4EB5 /* ScanViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -275,6 +333,7 @@
 				DEVELOPMENT_TEAM = SQYP2NUML9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SugarScan/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -304,6 +363,7 @@
 				DEVELOPMENT_TEAM = SQYP2NUML9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SugarScan/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
