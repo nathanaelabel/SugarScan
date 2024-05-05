@@ -8,40 +8,45 @@
 import SwiftUI
 
 struct MainView: View {
+    @EnvironmentObject var viewModel: ScanViewModel
     @State var sugarIntake: Float = 0.0
-    var sugarLimit: Int
+    @State var sugarLimit: Int
+    @State private var showScanView = false
     
     var body: some View {
-        VStack {
-            Text("Today")
-                .font(.largeTitle)
-                .padding()
-            
-            CircularProgressBar(progress: sugarIntake, total: Double(sugarLimit))
-                .frame(width: 200, height: 200) // Adjust size as needed
-                .padding()
-            
-            Button(action: {
-                sugarIntake += 5.0 // Dummy example, increase by 5g
-            }) {
-                Text("Add Sugar")
-                    .font(.headline)
-                    .foregroundColor(.white)
-                    .frame(minWidth: 0, maxWidth: .infinity)
+        NavigationView {
+            VStack {
+                Text("Daily Sugar Intake")
+                    .font(.title)
+                    .bold()
                     .padding()
-                    .background(Color.blue)
-                    .cornerRadius(10)
+                CircularProgressBar(progress: sugarIntake, total: Double(sugarLimit))
+                    .frame(width: 200, height: 200)
+                    .padding()
+                
+                Button(action: {
+                    showScanView = true
+                }) {
+                    Text("Add Sugar")
+                        .font(.headline)
+                        .foregroundColor(.white)
+                        .frame(minWidth: 0, maxWidth: .infinity)
+                        .padding()
+                        .background(Color.blue)
+                        .cornerRadius(10)
+                }
+                .padding()
+                NavigationLink(destination: ScanView(updateSugarLimit: { newLimit in
+                    sugarLimit = newLimit
+                }), isActive: $showScanView) { EmptyView() }
             }
             .padding()
         }
-        .padding()
     }
 }
 
 struct MainView_Previews: PreviewProvider {
     static var previews: some View {
-        MainView(sugarLimit: 36) // Sample sugar limit for preview
+        MainView(sugarLimit: 36)
     }
 }
-
-

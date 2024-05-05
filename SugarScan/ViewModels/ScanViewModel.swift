@@ -12,11 +12,11 @@ import AVFoundation
 class ScanViewModel: ObservableObject {
     @Published var image: Image?
     @Published var uiImage: UIImage?
-    @Published var label: String = "Sugar Scan App"
+    @Published var label: String = ""
     @Published var productName: String = ""
     @Published var servingsPerPackage: Double?
     @Published var sugarAmount: Double?
-    @Published var isDataReady: Bool = false  // Flag to navigate to AddSugarView
+    @Published var isDataReady: Bool = false
     
     func loadImage(_ inputImage: UIImage?) {
         guard let inputImage = inputImage else {
@@ -51,10 +51,10 @@ class ScanViewModel: ObservableObject {
                 return
             }
             let textResults = observations.compactMap({ $0.topCandidates(1).first?.string })
-            print("Recognized text results: \(textResults)")  // Debug print statement
+            print("Recognized text results: \(textResults)")  // debug for text recog
             DispatchQueue.main.async {
                 self.processNutritionalInfo(textResults: textResults)
-                self.isDataReady = true  // Update the flag when data processing is complete
+                self.isDataReady = true
             }
         }
         
@@ -99,35 +99,6 @@ class ScanViewModel: ObservableObject {
         let results = regex.matches(in: text, options: [], range: NSRange(location: 0, length: nsString.length))
         return results.last.flatMap { Double(nsString.substring(with: $0.range)) }
     }
-    
-    //    static let numberRegex = try! NSRegularExpression(pattern: "([0-9]+\\.?[0-9]*)\\s*(g|mg|ml|l)?", options: [])
-    //
-    //    private func extractNumberAndUnit(from text: String) -> (number: Double?, unit: String?) {
-    //        let nsString = text as NSString
-    //        let results = ScanViewModel.numberRegex.matches(in: text, options: [], range: NSRange(location: 0, length: nsString.length))
-    //
-    //        if let result = results.first, result.numberOfRanges == 3 {
-    //            let numberString = nsString.substring(with: result.range(at: 1))
-    //            let number = Double(numberString)
-    //            var unit: String? = nil
-    //            if result.range(at: 2).location != NSNotFound {
-    //                unit = nsString.substring(with: result.range(at: 2))
-    //            }
-    //            return (number, unit)
-    //        }
-    //        return (nil, nil)
-    //    }
-    //
-    //    private func extractNumber(from text: String) -> Double? {
-    //        let nsString = text as NSString
-    //        let regex = try! NSRegularExpression(pattern: "\\d+\\.?\\d*", options: [])
-    //        let results = regex.matches(in: text, options: [], range: NSRange(location: 0, length: nsString.length))
-    //        if let result = results.first {
-    //            let numberString = nsString.substring(with: result.range)
-    //            return Double(numberString)
-    //        }
-    //        return nil
-    //    }
     
     func confirmData() {
         guard let sugar = sugarAmount, let servings = servingsPerPackage, !productName.isEmpty else {

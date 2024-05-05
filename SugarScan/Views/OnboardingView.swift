@@ -9,15 +9,15 @@ import SwiftUI
 
 struct OnboardingView: View {
     @State private var navigateToMain = false
-    @State private var sugarLimit = 36
+    @State private var sugarLimit = 36  // Default sugar limit
     @State private var selectedGender = 0 // 0 for male, 1 for female
+    @State private var navigateToSetSugarLimit = false
     
     var body: some View {
-        NavigationView {
+        NavigationStack {
             VStack {
                 Text("Set your daily sugar intake limit in grams. You can edit this anytime later.")
                     .foregroundColor(Color(hex: "85858B"))
-                    .bold()
                     .padding()
                 
                 VStack {
@@ -26,7 +26,7 @@ struct OnboardingView: View {
                             .bold()
                             .padding()
                         Spacer()
-                        Picker(selection: $selectedGender, label: Text("")) {
+                        Picker(selection: $selectedGender, label: Text("Select Gender")) {
                             Text("Male").tag(0)
                             Text("Female").tag(1)
                         }
@@ -38,14 +38,11 @@ struct OnboardingView: View {
                         .font(.largeTitle)
                         .bold()
                         .padding()
-                    Text("")
+                    
                     Text("AHA Recommended Added Sugar Limit >")
                         .font(.system(size: 12))
                         .foregroundColor(.secondary)
-                        .frame(
-                            maxWidth: .infinity,
-                            alignment: .trailing
-                        )
+                        .frame(maxWidth: .infinity, alignment: .trailing)
                         .underline()
                         .padding()
                         .onTapGesture {
@@ -58,38 +55,44 @@ struct OnboardingView: View {
                 .cornerRadius(10)
                 .padding()
                 
-                Button(action: {
+                Button("Set to Recommended") {
                     sugarLimit = selectedGender == 0 ? 36 : 24
                     navigateToMain = true
-                }) {
-                    Text("Set to Recommended")
-                        .font(.headline)
-                        .foregroundColor(.white)
-                        .frame(minWidth: 0, maxWidth: .infinity)
-                        .padding()
-                        .background(Color.blue)
-                        .cornerRadius(10)
                 }
+                .font(.headline)
+                .foregroundColor(.white)
+                .frame(minWidth: 0, maxWidth: .infinity)
+                .padding()
+                .background(Color.blue)
+                .cornerRadius(10)
+                .padding()
+                
+                Button("Set my own limit") {
+                    navigateToSetSugarLimit = true
+                }
+                .font(.headline)
+                .foregroundColor(Color.gray)
                 .padding()
                 
                 NavigationLink(destination: MainView(sugarLimit: sugarLimit), isActive: $navigateToMain) {
                     EmptyView()
                 }
-                
-                NavigationLink(destination: SetSugarLimitView(sugarLimit: $sugarLimit)) {
-                    Text("Set my own limit")
-                        .foregroundColor(Color.gray)
-                        .bold()
-                        .padding()
+                NavigationLink(destination: SetSugarLimitView(sugarLimit: $sugarLimit, navigateBack: {
+                    navigateToMain = true
+                }), isActive: $navigateToSetSugarLimit) {
+                    EmptyView()
                 }
+                
                 Spacer()
             }
-            .navigationBarTitle("Set Sugar Limit")
+            .navigationTitle("Set Sugar Limit")
             .background(Color(hex: "F5F5F5"))
         }
     }
 }
 
-#Preview {
-    OnboardingView()
+struct OnboardingView_Previews: PreviewProvider {
+    static var previews: some View {
+        OnboardingView()
+    }
 }

@@ -9,9 +9,10 @@ import SwiftUI
 
 @main
 struct SugarScanApp: App {
+    
     var body: some Scene {
         WindowGroup {
-            ScanView()
+            OnboardingView()
         }
     }
 }
